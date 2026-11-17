@@ -6,6 +6,9 @@
 
 @inject INoteService NoteService
 
+<input @bind="newTitle" />
+<button @onclick="Add">Add</button>
+
 <ul>
     @foreach (var note in notes)
     {
@@ -15,6 +18,15 @@
 
 @code {
     private IReadOnlyList<Note> notes = [];
+    private string newTitle = "";
 
     protected override async Task OnInitializedAsync() => notes = await NoteService.GetAllAsync();
+
+    private async Task Add()
+    {
+        if (string.IsNullOrWhiteSpace(newTitle)) return;
+        await NoteService.AddAsync(newTitle);
+        newTitle = "";
+        notes = await NoteService.GetAllAsync();
+    }
 }

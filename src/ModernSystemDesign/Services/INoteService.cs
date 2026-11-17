@@ -5,4 +5,5 @@ namespace ModernSystemDesign.Services;
 public interface INoteService
 {
     Task<IReadOnlyList<Note>> GetAllAsync();
+    Task AddAsync(string title);
 }
