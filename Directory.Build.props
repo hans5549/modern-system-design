@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <!-- shortcut: IDE0011 stays a warning, not an error, while Program.cs uses a brace-less `using`; remove this line once it is fixed. -->
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);IDE0011</WarningsNotAsErrors>
+  </PropertyGroup>
+</Project>
